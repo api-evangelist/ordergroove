@@ -1,0 +1,159 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ordergroove REST API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{apiKey}}",
+      "in": "header"
+    }
+  },
+  "items": [
+    {
+      "info": { "name": "Subscriptions", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List subscriptions", "type": "http" },
+          "http": { "method": "GET", "url": "https://restapi.ordergroove.com/subscriptions/?customer=:customer" },
+          "docs": "Lists subscriptions filterable by customer, product, live status, and date ranges."
+        },
+        {
+          "info": { "name": "Retrieve a subscription", "type": "http" },
+          "http": { "method": "GET", "url": "https://restapi.ordergroove.com/subscriptions/:public_id/" },
+          "docs": "Retrieves a single subscription by public id."
+        },
+        {
+          "info": { "name": "Cancel a subscription", "type": "http" },
+          "http": { "method": "POST", "url": "https://restapi.ordergroove.com/subscriptions/:public_id/cancel/" },
+          "docs": "Cancels an active subscription."
+        },
+        {
+          "info": { "name": "Reactivate a subscription", "type": "http" },
+          "http": { "method": "POST", "url": "https://restapi.ordergroove.com/subscriptions/:public_id/reactivate/" },
+          "docs": "Reactivates a cancelled subscription."
+        },
+        {
+          "info": { "name": "Change frequency", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://restapi.ordergroove.com/subscriptions/:public_id/change_frequency/",
+            "body": { "type": "json", "data": "{\"every\": 30, \"every_period\": \"day\"}" }
+          },
+          "docs": "Changes how often the subscription recurs."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Customers", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List customers", "type": "http" },
+          "http": { "method": "GET", "url": "https://restapi.ordergroove.com/customers/" },
+          "docs": "Lists customers."
+        },
+        {
+          "info": { "name": "Create a customer", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://restapi.ordergroove.com/customers/",
+            "body": { "type": "json", "data": "{}" }
+          },
+          "docs": "Creates a new customer profile."
+        },
+        {
+          "info": { "name": "Retrieve a customer", "type": "http" },
+          "http": { "method": "GET", "url": "https://restapi.ordergroove.com/customers/:public_id/" },
+          "docs": "Retrieves a single customer by public id."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Orders", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List orders", "type": "http" },
+          "http": { "method": "GET", "url": "https://restapi.ordergroove.com/orders/?customer=:customer" },
+          "docs": "Lists recurring orders."
+        },
+        {
+          "info": { "name": "Retrieve an order", "type": "http" },
+          "http": { "method": "GET", "url": "https://restapi.ordergroove.com/orders/:public_id/" },
+          "docs": "Retrieves a single order by public id."
+        },
+        {
+          "info": { "name": "Send an order now", "type": "http" },
+          "http": { "method": "POST", "url": "https://restapi.ordergroove.com/orders/:public_id/send_now/" },
+          "docs": "Places the next recurring order immediately."
+        },
+        {
+          "info": { "name": "Cancel an order", "type": "http" },
+          "http": { "method": "POST", "url": "https://restapi.ordergroove.com/orders/:public_id/cancel/" },
+          "docs": "Cancels a pending recurring order."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Items", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List items", "type": "http" },
+          "http": { "method": "GET", "url": "https://restapi.ordergroove.com/items/?subscription=:subscription" },
+          "docs": "Lists items within an order or subscription."
+        },
+        {
+          "info": { "name": "Create an item", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://restapi.ordergroove.com/items/",
+            "body": { "type": "json", "data": "{}" }
+          },
+          "docs": "Creates a new item."
+        },
+        {
+          "info": { "name": "Delete an item", "type": "http" },
+          "http": { "method": "DELETE", "url": "https://restapi.ordergroove.com/items/:public_id/" },
+          "docs": "Deletes an item."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Products", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List products", "type": "http" },
+          "http": { "method": "GET", "url": "https://restapi.ordergroove.com/products/" },
+          "docs": "Lists products in the catalog."
+        },
+        {
+          "info": { "name": "Retrieve a product", "type": "http" },
+          "http": { "method": "GET", "url": "https://restapi.ordergroove.com/products/:id/" },
+          "docs": "Retrieves a single product."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Offers and Incentives", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List offer profiles", "type": "http" },
+          "http": { "method": "GET", "url": "https://restapi.ordergroove.com/offer_profiles/" },
+          "docs": "Lists offer profiles / incentive logic."
+        },
+        {
+          "info": { "name": "List one-time discounts", "type": "http" },
+          "http": { "method": "GET", "url": "https://restapi.ordergroove.com/otd/" },
+          "docs": "Lists one-time discounts."
+        },
+        {
+          "info": { "name": "List entitlements", "type": "http" },
+          "http": { "method": "GET", "url": "https://restapi.ordergroove.com/entitlements/?customer=:customer" },
+          "docs": "Lists entitlements attached to a customer."
+        }
+      ]
+    }
+  ]
+}

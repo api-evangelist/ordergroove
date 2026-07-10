@@ -1,0 +1,113 @@
+aid: ordergroove
+name: Ordergroove
+review:
+  question: Does Ordergroove expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-10'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Ordergroove's own public surface is a
+    request/response REST API over HTTPS (restapi.ordergroove.com) plus outbound
+    Webhooks. The Webhooks are server-to-endpoint HTTP POST callbacks (order,
+    item, subscription, subscriber, entitlement, and workflow events), not a
+    bidirectional or server-push socket transport, so there is no WebSocket or
+    SSE surface on Ordergroove's own API to model.
+findings:
+  summary: |
+    Ordergroove does not publish a documented public WebSocket API. Ordergroove
+    is an enterprise subscription and relationship-commerce platform. Its public
+    developer surface is a REST API at https://restapi.ordergroove.com (staging
+    at https://staging.restapi.ordergroove.com), organized around a four-object
+    data model (Customer, Subscription, Item, Order) with supporting resources
+    for Products, Offers/Incentives, Payments, Addresses, and Entitlements. The
+    API is pure request/response REST over HTTPS with cursor pagination. Two auth
+    scopes exist: an Application API scope (x-api-key header, one of ten store
+    keys, server-to-server) and a Storefront API scope (HMAC-SHA256-signed,
+    single-customer). Event delivery is via outbound Webhooks (HTTP POST), not a
+    socket. A GraphQL API over subscription/order data was announced in Early
+    Access, but it too is documented as request/response, not a WebSocket
+    subscription transport. No ws:// or wss:// endpoint is documented anywhere in
+    Ordergroove's developer docs as of the review date.
+  openSource: |
+    Ordergroove is a proprietary, enterprise, closed-source SaaS platform sold
+    through sales. The developer documentation and API reference at
+    developer.ordergroove.com are publicly readable, but calling the API requires
+    a contracted merchant account and API keys. There is no open-source server or
+    self-hosted distribution.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://restapi.ordergroove.com
+      documented: true
+      note: Primary REST API (Application and Storefront scopes). Staging at staging.restapi.ordergroove.com.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: Outbound HTTP POST event callbacks (order, item, subscription, subscriber, entitlement, workflow events). Server-to-endpoint, not WebSocket.
+    - protocol: GraphQL
+      scheme: https
+      documented: partial
+      note: GraphQL over subscription/order data announced in Early Access; request/response, schema not yet fully public. Not a WebSocket transport.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in Ordergroove's developer docs as of the review date.
+  endpointsConfirmedRest:
+    - GET    https://restapi.ordergroove.com/subscriptions/
+    - GET    https://restapi.ordergroove.com/subscriptions/{public_id}/
+    - POST   https://restapi.ordergroove.com/subscriptions/{public_id}/cancel/
+    - POST   https://restapi.ordergroove.com/subscriptions/{public_id}/reactivate/
+    - POST   https://restapi.ordergroove.com/subscriptions/{public_id}/change_frequency/
+    - GET    https://restapi.ordergroove.com/customers/
+    - POST   https://restapi.ordergroove.com/customers/
+    - GET    https://restapi.ordergroove.com/customers/{public_id}/
+    - GET    https://restapi.ordergroove.com/orders/
+    - GET    https://restapi.ordergroove.com/orders/{public_id}/
+    - POST   https://restapi.ordergroove.com/orders/{public_id}/cancel/
+    - POST   https://restapi.ordergroove.com/orders/{public_id}/send_now/
+    - GET    https://restapi.ordergroove.com/items/
+    - POST   https://restapi.ordergroove.com/items/
+    - GET    https://restapi.ordergroove.com/items/{public_id}/
+    - DELETE https://restapi.ordergroove.com/items/{public_id}/
+    - GET    https://restapi.ordergroove.com/products/
+    - GET    https://restapi.ordergroove.com/products/{id}/
+    - GET    https://restapi.ordergroove.com/offer_profiles/
+    - GET    https://restapi.ordergroove.com/otd/
+    - GET    https://restapi.ordergroove.com/entitlements/
+  note: |
+    Paths above reflect the resource structure documented in the public API
+    reference (restapi.ordergroove.com uses trailing-slash, resource-scoped
+    endpoints). Exact query parameters and request bodies are drawn from the
+    per-endpoint reference pages; the OpenAPI in this repo models a representative
+    subset rather than the full 100+ documented operations.
+sources:
+  - url: https://developer.ordergroove.com/reference/start
+    type: Documentation
+    note: API reference landing; points AI agents to llms.txt index.
+  - url: https://developer.ordergroove.com/reference/authentication
+    type: APIReference
+    note: Base URL restapi.ordergroove.com; x-api-key (Application) and HMAC-SHA256 (Storefront) scopes; HTTPS only.
+  - url: https://developer.ordergroove.com/reference/ordergroove-api-rate-limits
+    type: APIReference
+    note: 6,000 requests per IP per minute; 429 responses safe to retry.
+  - url: https://developer.ordergroove.com/reference/resource-overview
+    type: APIReference
+    note: Four-object model (Customer, Subscription, Order, Item) plus resource extensions.
+  - url: https://developer.ordergroove.com/docs/data-model-at-a-glance
+    type: Documentation
+    note: Field-level data model for Customer, Subscription, Order, Item, Product, Offer.
+  - url: https://developer.ordergroove.com/reference/webhooks-overview
+    type: Documentation
+    note: Outbound webhook events (order, item, subscription, subscriber, entitlement, workflow). HTTP POST, not WebSocket.
+  - url: https://www.ordergroove.com/blog/how-ordergroove-is-using-graphql-to-build-ai-ready-subscription-infrastructure/
+    type: BlogPost
+    note: GraphQL API announced in Early Access; request/response, AI-agent oriented.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. Ordergroove's public API is
+    request/response REST plus outbound HTTP webhooks, with a GraphQL API in
+    Early Access. No AsyncAPI document was created because there is no server-push
+    socket transport on Ordergroove's own API to model.

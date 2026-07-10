@@ -1,0 +1,88 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Ordergroove
+providerId: ordergroove
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: false
+tags:
+- Subscriptions
+- Recurring Commerce
+- eCommerce
+- Enterprise
+- Plans
+description: >-
+  Ordergroove is an enterprise subscription and relationship-commerce platform
+  sold through its sales team, not via self-serve public pricing. There is no
+  published price list; contracts are custom-quoted per merchant and are commonly
+  structured around platform fees plus usage tied to subscription revenue,
+  active subscriber count, or order volume. The REST API and developer
+  documentation are available to contracted merchants (each store is issued up to
+  ten Application API keys); the API itself carries no separate advertised fee.
+  Access starts with a demo/consultation rather than a credit-card signup, so the
+  tiers below are modeled from public product positioning and are not reconciled
+  against an official rate card.
+notes: >-
+  Ordergroove does not publish per-unit or per-tier pricing. Values here are
+  modeled from public positioning (enterprise, mid-market, and DTC segments) and a
+  contact-sales motion. Verify actual commercial terms directly with Ordergroove
+  sales during reconciliation.
+sources:
+- https://www.ordergroove.com/
+- https://www.ordergroove.com/get-started
+- https://developer.ordergroove.com/reference/authentication
+- https://help.ordergroove.com/hc/en-us/articles/360041870653-Pricing-and-Incentive-FAQ
+plans:
+- id: ordergroove-platform
+  name: Ordergroove Platform (Custom Quote)
+  type: enterprise
+  description: >-
+    Custom-quoted subscription-commerce platform contract covering the merchant
+    program - autoship, memberships, prepaid, bundles, and rotating/curation
+    subscriptions - with the full REST API, webhooks, Subscription Manager, and
+    up to ten Application API keys per store. Priced per merchant, commonly
+    against subscription revenue, active subscribers, or order volume.
+  entries:
+  - label: Platform Contract
+    name: platform_contract
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales (custom quote)
+    userMultiplied: false
+  elements:
+  - name: REST API Access
+  - name: Webhooks
+  - name: Subscription Manager
+  - name: Up to 10 Application API Keys
+  - name: Sandbox / Staging Environment
+- id: ordergroove-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    High-volume enterprise agreement adding advanced incentives, AI-driven
+    retention/optimization features, dedicated support, SLAs, and negotiated
+    terms. Contact Ordergroove.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Advanced Incentives and Offers
+  - name: AI Optimization
+  - name: Dedicated Support and SLAs
+  - name: Custom Integrations
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

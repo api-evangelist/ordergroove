@@ -1,0 +1,100 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Ordergroove
+providerId: ordergroove
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: false
+tags:
+- Subscriptions
+- Recurring Commerce
+- eCommerce
+- Enterprise
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Ordergroove spend. Ordergroove is an enterprise subscription and
+  relationship-commerce platform billed through a negotiated commercial contract
+  rather than public self-serve pricing. Cost is typically a platform fee plus a
+  usage/revenue-share component tied to subscription program performance (active
+  subscribers, recurring orders, or subscription revenue). The REST API and
+  webhooks carry no separately advertised per-call fee; API usage is governed by
+  the 6,000 requests/IP/minute rate limit rather than metered billing. Exact
+  commercial terms are custom per merchant and are not reconciled here.
+notes: >-
+  Ordergroove does not publish per-unit rates. The meters below are modeled from
+  public product positioning (revenue-share / active-subscriber style enterprise
+  SaaS) and should be verified against the actual Ordergroove contract during
+  reconciliation. The dominant cost driver is the platform contract, not API
+  request volume.
+sources:
+- https://www.ordergroove.com/
+- https://www.ordergroove.com/blog/total-cost-of-ownership-subscriptions/
+- https://developer.ordergroove.com/reference/ordergroove-api-rate-limits
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Ordergroove
+serviceCategory: Commerce and Subscriptions
+billingModel:
+  pricingCategory: Committed-Contract
+  billingFrequency: Annual
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Usage
+  - Adjustment
+focusColumns:
+  ServiceName: Ordergroove Subscription Platform
+  ServiceCategory: Commerce and Subscriptions
+  ProviderName: Ordergroove
+  PublisherName: Ordergroove
+  InvoiceIssuerName: Ordergroove
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Committed-Contract
+meters:
+- name: platform_fee
+  description: Base platform contract fee for the subscription-commerce program (modeled; contract-specific).
+  unit: contract
+  aggregation: sum
+  dimensions:
+  - account
+- name: active_subscribers
+  description: Active subscribers in the program, a common enterprise usage/revenue-share driver (modeled).
+  unit: subscribers
+  aggregation: max
+  dimensions:
+  - account
+  - program
+- name: recurring_orders
+  description: Recurring orders generated and placed to the merchant platform (modeled usage driver).
+  unit: orders
+  aggregation: sum
+  dimensions:
+  - account
+  - program
+- name: subscription_revenue
+  description: Subscription revenue processed through the program, a possible revenue-share basis (modeled).
+  unit: usd
+  aggregation: sum
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Track active subscribers, recurring order volume, and subscription revenue as the drivers of the Ordergroove contract; API request volume is rate-limited, not billed.
+- name: Allocation
+  description: Map subscription programs and stores to internal business units so platform cost is attributed to the brands that generate the recurring revenue.
+- name: Optimization
+  description: Reduce churn and improve incentive/offer efficiency to raise revenue per platform dollar; batch API reads within the 6,000/IP/minute limit to avoid throttling.
+- name: Accountability
+  description: Assign program owners and review the Ordergroove contract against subscription revenue and retention outcomes at renewal.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

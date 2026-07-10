@@ -1,0 +1,59 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Ordergroove
+providerId: ordergroove
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: false
+tags:
+- Subscriptions
+- eCommerce
+- Rate Limiting
+- Quotas
+description: >-
+  Ordergroove enforces a documented per-IP rate limit on its REST API. All
+  endpoints under restapi.ordergroove.com (and staging.restapi.ordergroove.com)
+  are limited to 6,000 requests per IP address per one-minute window. Requests
+  over the threshold receive an HTTP 429 Too Many Requests response, which
+  Ordergroove documents as safe to retry at any time. The docs recommend
+  optimizing code, regulating request rates, and implementing retry logic for
+  429s. Cursor-based pagination is used to traverse large data sets efficiently.
+notes: >-
+  The 6,000 requests/IP/minute limit is confirmed from the public API rate-limits
+  reference. No explicit Retry-After header is documented as of the review date;
+  clients should apply exponential backoff with jitter on 429 responses.
+sources:
+- https://developer.ordergroove.com/reference/ordergroove-api-rate-limits
+- https://developer.ordergroove.com/reference/pagination
+- https://developer.ordergroove.com/reference/authentication
+responseCodes:
+  throttled: 429
+limits:
+- name: REST API Requests
+  scope: ip
+  metric: requests
+  limit: 6000
+  interval: minute
+  notes: 6,000 requests per IP address per minute across all REST endpoints; 429 when exceeded.
+- name: Staging REST API Requests
+  scope: ip
+  metric: requests
+  limit: 6000
+  interval: minute
+  notes: Same 6,000/IP/minute limit applies on staging.restapi.ordergroove.com.
+- name: Bulk Operations
+  scope: account
+  metric: requests
+  limit: permission-gated
+  notes: Listing subscriptions/orders across more than one customer requires the Bulk Operations permission on the Application API scope.
+policies:
+- name: Retry Safe
+  description: 429 Too Many Requests responses are documented as safe to retry at any point in time.
+- name: Backoff Strategy
+  description: Regulate request rate and implement retry logic with exponential backoff and jitter for 429 responses.
+- name: Cursor Pagination
+  description: Large result sets are traversed with cursor-based pagination rather than large single responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

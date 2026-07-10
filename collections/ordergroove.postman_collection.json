@@ -1,0 +1,241 @@
+{
+  "info": {
+    "name": "Ordergroove REST API",
+    "description": "Ordergroove enterprise subscription and relationship-commerce REST API at restapi.ordergroove.com. Application API scope uses an x-api-key header; Storefront scope uses HMAC-SHA256. Endpoints are drawn from the public developer reference.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      { "key": "key", "value": "x-api-key" },
+      { "key": "value", "value": "{{apiKey}}" },
+      { "key": "in", "value": "header" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://restapi.ordergroove.com" },
+    { "key": "apiKey", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Subscriptions",
+      "item": [
+        {
+          "name": "List subscriptions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/subscriptions/?customer={{customer}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["subscriptions", ""],
+              "query": [{ "key": "customer", "value": "{{customer}}" }]
+            }
+          }
+        },
+        {
+          "name": "Retrieve a subscription",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/subscriptions/{{public_id}}/",
+              "host": ["{{baseUrl}}"],
+              "path": ["subscriptions", "{{public_id}}", ""]
+            }
+          }
+        },
+        {
+          "name": "Cancel a subscription",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/subscriptions/{{public_id}}/cancel/",
+              "host": ["{{baseUrl}}"],
+              "path": ["subscriptions", "{{public_id}}", "cancel", ""]
+            }
+          }
+        },
+        {
+          "name": "Reactivate a subscription",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/subscriptions/{{public_id}}/reactivate/",
+              "host": ["{{baseUrl}}"],
+              "path": ["subscriptions", "{{public_id}}", "reactivate", ""]
+            }
+          }
+        },
+        {
+          "name": "Change frequency",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"every\": 30,\n  \"every_period\": \"day\"\n}" },
+            "url": {
+              "raw": "{{baseUrl}}/subscriptions/{{public_id}}/change_frequency/",
+              "host": ["{{baseUrl}}"],
+              "path": ["subscriptions", "{{public_id}}", "change_frequency", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "List customers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/customers/", "host": ["{{baseUrl}}"], "path": ["customers", ""] }
+          }
+        },
+        {
+          "name": "Create a customer",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}" },
+            "url": { "raw": "{{baseUrl}}/customers/", "host": ["{{baseUrl}}"], "path": ["customers", ""] }
+          }
+        },
+        {
+          "name": "Retrieve a customer",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/customers/{{public_id}}/",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", "{{public_id}}", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "List orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders/?customer={{customer}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", ""],
+              "query": [{ "key": "customer", "value": "{{customer}}" }]
+            }
+          }
+        },
+        {
+          "name": "Retrieve an order",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders/{{public_id}}/",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", "{{public_id}}", ""]
+            }
+          }
+        },
+        {
+          "name": "Send an order now",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders/{{public_id}}/send_now/",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", "{{public_id}}", "send_now", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Items",
+      "item": [
+        {
+          "name": "List items",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/items/?subscription={{subscription}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["items", ""],
+              "query": [{ "key": "subscription", "value": "{{subscription}}" }]
+            }
+          }
+        },
+        {
+          "name": "Delete an item",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/items/{{public_id}}/",
+              "host": ["{{baseUrl}}"],
+              "path": ["items", "{{public_id}}", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "List products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/products/", "host": ["{{baseUrl}}"], "path": ["products", ""] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Offers and Incentives",
+      "item": [
+        {
+          "name": "List offer profiles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/offer_profiles/", "host": ["{{baseUrl}}"], "path": ["offer_profiles", ""] }
+          }
+        },
+        {
+          "name": "List one-time discounts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/otd/", "host": ["{{baseUrl}}"], "path": ["otd", ""] }
+          }
+        },
+        {
+          "name": "List entitlements",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/entitlements/?customer={{customer}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["entitlements", ""],
+              "query": [{ "key": "customer", "value": "{{customer}}" }]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

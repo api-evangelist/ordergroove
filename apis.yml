@@ -206,6 +206,14 @@ apis:
     operations are not yet fully documented - this entry is modeled and the endpoint
     detail is unconfirmed pending general availability.
 common:
+- type: TrustCenter
+  url: security/ordergroove-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/ordergroove-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/ordergroove-domain-security.yml
+- type: Authentication
+  url: authentication/ordergroove-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/ordergroove
 - type: LinkedIn

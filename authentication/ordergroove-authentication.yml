@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/ordergroove-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: Application API scope. Send one of the ten store API keys in the x-api-key header
+    for server-to-server requests. Storefront requests use an HMAC-SHA256 signature scoped to
+    a single customer instead (out of band of this scheme).
+  sources:
+  - openapi/ordergroove-openapi.yml

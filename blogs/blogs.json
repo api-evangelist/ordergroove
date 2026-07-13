@@ -1,0 +1,14 @@
+{
+  "repo": "ordergroove",
+  "feeds": [
+    {
+      "source": "https://www.ordergroove.com/blog/how-ordergroove-is-using-graphql-to-build-ai-ready-subscription-infrastructure/",
+      "feed_url": "https://www.ordergroove.com/blog/how-ordergroove-is-using-graphql-to-build-ai-ready-subscription-infrastructure/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-07-11T11:50:51Z"
+}

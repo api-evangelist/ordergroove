@@ -14,7 +14,20 @@ description: Ordergroove is an enterprise subscription and relationship-commerce
   (HMAC-SHA256-signed, single-customer context). A GraphQL API for subscription and
   order data is in Early Access. The platform itself is enterprise and sold through
   sales, but the developer documentation and API reference are publicly readable.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ordergroove.png
 tags:
 - Subscriptions
 - Recurring Commerce
@@ -28,164 +41,6 @@ created: '2026-07-10'
 modified: '2026-07-10'
 specificationVersion: '0.19'
 apis:
-- aid: ordergroove:ordergroove-subscriptions-api
-  name: Ordergroove Subscriptions API
-  tags:
-  - Subscriptions
-  - Recurring Commerce
-  - Autoship
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.ordergroove.com/reference/subscriptions-list
-  baseURL: https://restapi.ordergroove.com
-  properties:
-  - url: https://developer.ordergroove.com/reference/start
-    type: Documentation
-  - url: https://developer.ordergroove.com/reference/subscriptions-list
-    type: APIReference
-  - url: openapi/ordergroove-openapi.yml
-    type: OpenAPI
-  - url: collections/ordergroove.postman_collection.json
-    type: PostmanCollection
-  - url: collections/ordergroove.opencollection.json
-    type: OpenCollection
-  description: List, retrieve, create, update, cancel, and reactivate recurring
-    subscriptions, and change their frequency, quantity, product, payment, shipping
-    address, email reminder, and next order date. Also covers prepaid, rotating,
-    and bundle subscription variants. Endpoints are confirmed from the public
-    reference under restapi.ordergroove.com.
-- aid: ordergroove:ordergroove-customers-api
-  name: Ordergroove Customers API
-  tags:
-  - Customers
-  - Profiles
-  - Relationship Commerce
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.ordergroove.com/reference/customers-list
-  baseURL: https://restapi.ordergroove.com
-  properties:
-  - url: https://developer.ordergroove.com/reference/customers-list
-    type: APIReference
-  - url: openapi/ordergroove-openapi.yml
-    type: OpenAPI
-  - url: collections/ordergroove.postman_collection.json
-    type: PostmanCollection
-  - url: collections/ordergroove.opencollection.json
-    type: OpenCollection
-  description: Manage the central customer profile that ties together subscriptions,
-    orders, addresses, and payment methods - list, retrieve, create, and update
-    customers, and set their contact details. Customer-scoped listing across
-    multiple customers requires the Bulk Operations permission on the Application
-    API scope.
-- aid: ordergroove:ordergroove-orders-api
-  name: Ordergroove Orders API
-  tags:
-  - Orders
-  - Fulfillment
-  - Recurring Commerce
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.ordergroove.com/reference/orders-list
-  baseURL: https://restapi.ordergroove.com
-  properties:
-  - url: https://developer.ordergroove.com/reference/orders-list
-    type: APIReference
-  - url: openapi/ordergroove-openapi.yml
-    type: OpenAPI
-  - url: collections/ordergroove.postman_collection.json
-    type: PostmanCollection
-  - url: collections/ordergroove.opencollection.json
-    type: OpenCollection
-  description: Work with the recurring orders that subscriptions generate before
-    they are sent to the merchant eCommerce platform - list, retrieve, cancel, send
-    now, skip, and change the shipping address, payment, and place date of an order.
-    Includes order status codes for tracking placement state.
-- aid: ordergroove:ordergroove-items-api
-  name: Ordergroove Items API
-  tags:
-  - Items
-  - Line Items
-  - Products
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.ordergroove.com/reference/items-list
-  baseURL: https://restapi.ordergroove.com
-  properties:
-  - url: https://developer.ordergroove.com/reference/items-list
-    type: APIReference
-  - url: openapi/ordergroove-openapi.yml
-    type: OpenAPI
-  - url: collections/ordergroove.postman_collection.json
-    type: PostmanCollection
-  - url: collections/ordergroove.opencollection.json
-    type: OpenCollection
-  description: Manage the individual products contained within an order or tied to a
-    subscription - list, retrieve, create, create-in-order, update, delete, change
-    quantity, change price, and swap product. Items may be recurring or flagged as
-    one-time additions to an order.
-- aid: ordergroove:ordergroove-products-api
-  name: Ordergroove Products API
-  tags:
-  - Products
-  - Catalog
-  - Product Groups
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.ordergroove.com/reference/products-list
-  baseURL: https://restapi.ordergroove.com
-  properties:
-  - url: https://developer.ordergroove.com/reference/products-list
-    type: APIReference
-  - url: openapi/ordergroove-openapi.yml
-    type: OpenAPI
-  - url: collections/ordergroove.postman_collection.json
-    type: PostmanCollection
-  - url: collections/ordergroove.opencollection.json
-    type: OpenCollection
-  description: Manage the product catalog that subscriptions and items reference -
-    list, retrieve, update, bulk create, and bulk update products, check group
-    membership, and manage product relationships and product groups. Products carry
-    autoship eligibility and map to the merchant external product ID.
-- aid: ordergroove:ordergroove-offers-incentives-api
-  name: Ordergroove Offers and Incentives API
-  tags:
-  - Offers
-  - Incentives
-  - Discounts
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.ordergroove.com/reference/offer-profile-list
-  baseURL: https://restapi.ordergroove.com
-  properties:
-  - url: https://developer.ordergroove.com/reference/offer-profile-list
-    type: APIReference
-  - url: openapi/ordergroove-openapi.yml
-    type: OpenAPI
-  - url: collections/ordergroove.postman_collection.json
-    type: PostmanCollection
-  - url: collections/ordergroove.opencollection.json
-    type: OpenCollection
-  description: Retrieve the offer profiles and incentive logic applied to recurring
-    purchases, manage one-time discounts (OTD) with full CRUD, list cancellation
-    reasons, and list, modify, and void entitlements attached to a customer. Offers
-    are referenced throughout subscriptions and items to drive discount and
-    promotion behavior.
-- aid: ordergroove:ordergroove-webhooks-api
-  name: Ordergroove Webhooks API
-  tags:
-  - Webhooks
-  - Events
-  - Data Sync
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.ordergroove.com/reference/webhooks-overview
-  baseURL: https://restapi.ordergroove.com
-  properties:
-  - url: https://developer.ordergroove.com/reference/webhooks-overview
-    type: Documentation
-  - url: https://developer.ordergroove.com/docs/configure-webhooks-via-api
-    type: APIReference
-  - url: openapi/ordergroove-openapi.yml
-    type: OpenAPI
-  description: Subscribe to and receive outbound event notifications for order,
-    item, subscription, subscriber, entitlement, and workflow events so internal
-    systems stay in sync with Ordergroove. Webhooks are configured through the
-    dashboard or programmatically, and deliver server-to-endpoint HTTP POST
-    callbacks - not a WebSocket stream.
 - aid: ordergroove:ordergroove-graphql-api
   name: Ordergroove GraphQL API (Early Access)
   tags:
@@ -193,18 +48,212 @@ apis:
   - Subscriptions
   - Orders
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.ordergroove.com/blog/how-ordergroove-is-using-graphql-to-build-ai-ready-subscription-infrastructure/
+  humanURL: >-
+    https://www.ordergroove.com/blog/how-ordergroove-is-using-graphql-to-build-ai-ready-subscription-infrastructure/
   baseURL: https://restapi.ordergroove.com
   properties:
   - url: https://developer.ordergroove.com/reference/start
     type: Documentation
-  - url: https://www.ordergroove.com/blog/how-ordergroove-is-using-graphql-to-build-ai-ready-subscription-infrastructure/
+  - url: >-
+      https://www.ordergroove.com/blog/how-ordergroove-is-using-graphql-to-build-ai-ready-subscription-infrastructure/
     type: BlogPost
-  description: A GraphQL surface over Ordergroove subscription and order data,
-    announced in Early Access and positioned for AI agents to explore the schema and
-    fetch exactly the fields they need. The public schema, endpoint path, and
-    operations are not yet fully documented - this entry is modeled and the endpoint
-    detail is unconfirmed pending general availability.
+  description: >-
+    A GraphQL surface over Ordergroove subscription and order data, announced in Early Access and positioned
+    for AI agents to explore the schema and fetch exactly the fields they need. The public schema, endpoint
+    path, and operations are not yet fully documented - this entry is modeled and the endpoint detail
+    is unconfirmed pending general availability.
+- aid: ordergroove:ordergroove-customers-api
+  name: Ordergroove Customers API
+  description: Central customer profiles.
+  humanURL: https://developer.ordergroove.com/reference/subscriptions-list
+  baseURL: https://restapi.ordergroove.com
+  tags:
+  - Customers
+  properties:
+  - type: OpenAPI
+    url: openapi/ordergroove-customers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.ordergroove.com/reference/start
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/subscriptions-list
+  - type: PostmanCollection
+    url: collections/ordergroove.postman_collection.json
+  - type: OpenCollection
+    url: collections/ordergroove.opencollection.json
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/customers-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/orders-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/items-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/products-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/offer-profile-list
+  - type: Documentation
+    url: https://developer.ordergroove.com/reference/webhooks-overview
+  - type: APIReference
+    url: https://developer.ordergroove.com/docs/configure-webhooks-via-api
+- aid: ordergroove:ordergroove-items-api
+  name: Ordergroove Items API
+  description: Line items within orders and subscriptions.
+  humanURL: https://developer.ordergroove.com/reference/subscriptions-list
+  baseURL: https://restapi.ordergroove.com
+  tags:
+  - Items
+  properties:
+  - type: OpenAPI
+    url: openapi/ordergroove-items-api-openapi.yml
+  - type: Documentation
+    url: https://developer.ordergroove.com/reference/start
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/subscriptions-list
+  - type: PostmanCollection
+    url: collections/ordergroove.postman_collection.json
+  - type: OpenCollection
+    url: collections/ordergroove.opencollection.json
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/customers-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/orders-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/items-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/products-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/offer-profile-list
+  - type: Documentation
+    url: https://developer.ordergroove.com/reference/webhooks-overview
+  - type: APIReference
+    url: https://developer.ordergroove.com/docs/configure-webhooks-via-api
+- aid: ordergroove:ordergroove-offers-api
+  name: Ordergroove Offers API
+  description: Offers, incentives, discounts, and entitlements.
+  humanURL: https://developer.ordergroove.com/reference/subscriptions-list
+  baseURL: https://restapi.ordergroove.com
+  tags:
+  - Offers
+  properties:
+  - type: OpenAPI
+    url: openapi/ordergroove-offers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.ordergroove.com/reference/start
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/subscriptions-list
+  - type: PostmanCollection
+    url: collections/ordergroove.postman_collection.json
+  - type: OpenCollection
+    url: collections/ordergroove.opencollection.json
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/customers-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/orders-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/items-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/products-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/offer-profile-list
+  - type: Documentation
+    url: https://developer.ordergroove.com/reference/webhooks-overview
+  - type: APIReference
+    url: https://developer.ordergroove.com/docs/configure-webhooks-via-api
+- aid: ordergroove:ordergroove-orders-api
+  name: Ordergroove Orders API
+  description: Recurring orders generated by subscriptions.
+  humanURL: https://developer.ordergroove.com/reference/subscriptions-list
+  baseURL: https://restapi.ordergroove.com
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/ordergroove-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developer.ordergroove.com/reference/start
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/subscriptions-list
+  - type: PostmanCollection
+    url: collections/ordergroove.postman_collection.json
+  - type: OpenCollection
+    url: collections/ordergroove.opencollection.json
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/customers-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/orders-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/items-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/products-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/offer-profile-list
+  - type: Documentation
+    url: https://developer.ordergroove.com/reference/webhooks-overview
+  - type: APIReference
+    url: https://developer.ordergroove.com/docs/configure-webhooks-via-api
+- aid: ordergroove:ordergroove-products-api
+  name: Ordergroove Products API
+  description: Product catalog and product groups.
+  humanURL: https://developer.ordergroove.com/reference/subscriptions-list
+  baseURL: https://restapi.ordergroove.com
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/ordergroove-products-api-openapi.yml
+  - type: Documentation
+    url: https://developer.ordergroove.com/reference/start
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/subscriptions-list
+  - type: PostmanCollection
+    url: collections/ordergroove.postman_collection.json
+  - type: OpenCollection
+    url: collections/ordergroove.opencollection.json
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/customers-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/orders-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/items-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/products-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/offer-profile-list
+  - type: Documentation
+    url: https://developer.ordergroove.com/reference/webhooks-overview
+  - type: APIReference
+    url: https://developer.ordergroove.com/docs/configure-webhooks-via-api
+- aid: ordergroove:ordergroove-subscriptions-api
+  name: Ordergroove Subscriptions API
+  description: Recurring subscription agreements.
+  humanURL: https://developer.ordergroove.com/reference/subscriptions-list
+  baseURL: https://restapi.ordergroove.com
+  tags:
+  - Subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/ordergroove-subscriptions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.ordergroove.com/reference/start
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/subscriptions-list
+  - type: PostmanCollection
+    url: collections/ordergroove.postman_collection.json
+  - type: OpenCollection
+    url: collections/ordergroove.opencollection.json
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/customers-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/orders-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/items-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/products-list
+  - type: APIReference
+    url: https://developer.ordergroove.com/reference/offer-profile-list
+  - type: Documentation
+    url: https://developer.ordergroove.com/reference/webhooks-overview
+  - type: APIReference
+    url: https://developer.ordergroove.com/docs/configure-webhooks-via-api
 common:
 - type: AgenticAccess
   url: agentic-access/ordergroove-agentic-access.yml

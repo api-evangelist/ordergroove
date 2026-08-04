@@ -1,0 +1,24 @@
+{
+  "provider": "ordergroove",
+  "sources": [
+    "ordergroove-customers-api-openapi.yml",
+    "ordergroove-items-api-openapi.yml",
+    "ordergroove-offers-api-openapi.yml",
+    "ordergroove-orders-api-openapi.yml",
+    "ordergroove-products-api-openapi.yml",
+    "ordergroove-subscriptions-api-openapi.yml"
+  ],
+  "outputs": [
+    "ordergroove-customers-api-openapi.yml",
+    "ordergroove-items-api-openapi.yml",
+    "ordergroove-offers-api-openapi.yml",
+    "ordergroove-orders-api-openapi.yml",
+    "ordergroove-products-api-openapi.yml",
+    "ordergroove-subscriptions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

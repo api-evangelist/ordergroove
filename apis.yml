@@ -39,7 +39,7 @@ tags:
 - Subscription Management
 created: '2026-07-10'
 modified: '2026-07-10'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: ordergroove:ordergroove-graphql-api
   name: Ordergroove GraphQL API (Early Access)

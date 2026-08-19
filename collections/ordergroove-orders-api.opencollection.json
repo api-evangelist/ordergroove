@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ordergroove REST Customers Orders API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.ordergroove.com/orders/",
+            "params": [
+              {
+                "name": "customer",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List orders"
+        },
+        {
+          "info": {
+            "name": "Retrieve an order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.ordergroove.com/orders/:public_id/",
+            "params": [
+              {
+                "name": "public_id",
+                "value": "",
+                "type": "path",
+                "description": "The public identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve an order"
+        },
+        {
+          "info": {
+            "name": "Cancel an order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://restapi.ordergroove.com/orders/:public_id/cancel/",
+            "params": [
+              {
+                "name": "public_id",
+                "value": "",
+                "type": "path",
+                "description": "The public identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Cancel an order"
+        },
+        {
+          "info": {
+            "name": "Send an order now",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://restapi.ordergroove.com/orders/:public_id/send_now/",
+            "params": [
+              {
+                "name": "public_id",
+                "value": "",
+                "type": "path",
+                "description": "The public identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Send an order now"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

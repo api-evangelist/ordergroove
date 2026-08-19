@@ -1,0 +1,424 @@
+{
+  "item": [
+    {
+      "id": "62e677a4-fe8c-48c1-a60f-4c0ffba359b0",
+      "name": "Items",
+      "description": {
+        "content": "Line items within orders and subscriptions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a74b09db-6ec0-4079-944a-a3ed6bea6f7e",
+          "name": "List items",
+          "request": {
+            "name": "List items",
+            "description": {},
+            "url": {
+              "path": [
+                "items",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subscription",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "330a077e-8a5f-471d-ab0a-415ed5c3ecff",
+              "name": "A paginated list of items.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subscription",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"public_id\": \"string\",\n      \"order_id\": \"string\",\n      \"subscription_id\": \"string\",\n      \"product_id\": \"string\",\n      \"quantity\": 9946,\n      \"price\": \"string\",\n      \"total_price\": \"string\",\n      \"offer_id\": \"string\",\n      \"one_time\": true\n    },\n    {\n      \"id\": \"string\",\n      \"public_id\": \"string\",\n      \"order_id\": \"string\",\n      \"subscription_id\": \"string\",\n      \"product_id\": \"string\",\n      \"quantity\": 6176,\n      \"price\": \"string\",\n      \"total_price\": \"string\",\n      \"offer_id\": \"string\",\n      \"one_time\": true\n    }\n  ],\n  \"next\": \"string\",\n  \"previous\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a870a9d0-482b-4bee-9f3f-ee7344c02a9c",
+          "name": "Create an item",
+          "request": {
+            "name": "Create an item",
+            "description": {},
+            "url": {
+              "path": [
+                "items",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"public_id\": \"<string>\",\n  \"order_id\": \"<string>\",\n  \"subscription_id\": \"<string>\",\n  \"product_id\": \"<string>\",\n  \"quantity\": \"<integer>\",\n  \"price\": \"<string>\",\n  \"total_price\": \"<string>\",\n  \"offer_id\": \"<string>\",\n  \"one_time\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8e8a2f78-dfdd-4507-864c-3748db5e087d",
+              "name": "The created item.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"public_id\": \"<string>\",\n  \"order_id\": \"<string>\",\n  \"subscription_id\": \"<string>\",\n  \"product_id\": \"<string>\",\n  \"quantity\": \"<integer>\",\n  \"price\": \"<string>\",\n  \"total_price\": \"<string>\",\n  \"offer_id\": \"<string>\",\n  \"one_time\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"public_id\": \"<string>\",\n  \"order_id\": \"<string>\",\n  \"subscription_id\": \"<string>\",\n  \"product_id\": \"<string>\",\n  \"quantity\": \"<integer>\",\n  \"price\": \"<string>\",\n  \"total_price\": \"<string>\",\n  \"offer_id\": \"<string>\",\n  \"one_time\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5c92b94-692e-4531-bb77-2074514d3e0a",
+          "name": "Retrieve an item",
+          "request": {
+            "name": "Retrieve an item",
+            "description": {},
+            "url": {
+              "path": [
+                "items",
+                ":public_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "public_id",
+                  "description": "(Required) The public identifier of the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d0dcd04-c71f-4933-b5da-2c579123e112",
+              "name": "An item.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":public_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "public_id",
+                      "description": "(Required) The public identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"public_id\": \"<string>\",\n  \"order_id\": \"<string>\",\n  \"subscription_id\": \"<string>\",\n  \"product_id\": \"<string>\",\n  \"quantity\": \"<integer>\",\n  \"price\": \"<string>\",\n  \"total_price\": \"<string>\",\n  \"offer_id\": \"<string>\",\n  \"one_time\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "238919bf-0bff-4865-9650-f9882866dfc4",
+          "name": "Delete an item",
+          "request": {
+            "name": "Delete an item",
+            "description": {},
+            "url": {
+              "path": [
+                "items",
+                ":public_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "public_id",
+                  "description": "(Required) The public identifier of the resource."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b3ad933-1a21-4a60-8a55-9ed2d27df8bc",
+              "name": "The item was deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":public_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "public_id",
+                      "description": "(Required) The public identifier of the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://restapi.ordergroove.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "57bcc17a-d289-4677-b7ca-e7df1c449fef",
+    "name": "Ordergroove REST Customers Items API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ordergroove REST API operates an enterprise subscription and relationship-commerce program on top of a merchant's eCommerce store. It is organized around a four-object data model - Customer, Subscription, Item, and Order - plus supporting resources for Products, Offers and Incentives, Payments, Addresses, and Entitlements. Two authentication scopes exist: an Application API scope for server-to-server calls using an x-api-key header (one of ten keys per store), and a Storefront API scope using an HMAC-SHA256-signed request scoped to a single customer. All traffic is HTTPS only. This document models the publicly documented REST surface at restapi.ordergroove.com; endpoint paths are drawn from the public API reference. Ordergroove is an enterprise platform sold through sales, so an account and API keys are required to call the API, but the reference is publicly readable.\n\nContact Support:\n Name: Ordergroove Developer",
+      "type": "text/plain"
+    }
+  }
+}

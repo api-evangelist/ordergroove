@@ -1,0 +1,168 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ordergroove REST Customers Subscriptions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.ordergroove.com/subscriptions/",
+            "params": [
+              {
+                "name": "customer",
+                "value": "",
+                "type": "query",
+                "description": "Filter by customer ID (Application scope only)."
+              },
+              {
+                "name": "product",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "live",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "created_end",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists subscriptions, filterable by customer, product, shipping address, live status, and created/updated date ranges. Listing across more than one customer requires the Bulk Operations permission."
+        },
+        {
+          "info": {
+            "name": "Retrieve a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.ordergroove.com/subscriptions/:public_id/",
+            "params": [
+              {
+                "name": "public_id",
+                "value": "",
+                "type": "path",
+                "description": "The public identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve a subscription"
+        },
+        {
+          "info": {
+            "name": "Update a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://restapi.ordergroove.com/subscriptions/:public_id/",
+            "params": [
+              {
+                "name": "public_id",
+                "value": "",
+                "type": "path",
+                "description": "The public identifier of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a subscription"
+        },
+        {
+          "info": {
+            "name": "Cancel a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://restapi.ordergroove.com/subscriptions/:public_id/cancel/",
+            "params": [
+              {
+                "name": "public_id",
+                "value": "",
+                "type": "path",
+                "description": "The public identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Cancel a subscription"
+        },
+        {
+          "info": {
+            "name": "Reactivate a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://restapi.ordergroove.com/subscriptions/:public_id/reactivate/",
+            "params": [
+              {
+                "name": "public_id",
+                "value": "",
+                "type": "path",
+                "description": "The public identifier of the resource."
+              }
+            ]
+          },
+          "docs": "Reactivate a subscription"
+        },
+        {
+          "info": {
+            "name": "Change subscription frequency",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://restapi.ordergroove.com/subscriptions/:public_id/change_frequency/",
+            "params": [
+              {
+                "name": "public_id",
+                "value": "",
+                "type": "path",
+                "description": "The public identifier of the resource."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change subscription frequency"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

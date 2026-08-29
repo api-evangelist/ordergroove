@@ -288,6 +288,9 @@ apis:
   - type: APIReference
     url: https://developer.ordergroove.com/docs/configure-webhooks-via-api
 common:
+- type: CapabilityMap
+  url: capabilities/ordergroove-capability-edges.yml
+  name: Ordergroove Business Capability Map
 - type: AgenticAccess
   url: agentic-access/ordergroove-agentic-access.yml
 - type: TrustCenter

@@ -14,6 +14,18 @@ description: Ordergroove is an enterprise subscription and relationship-commerce
   (HMAC-SHA256-signed, single-customer context). A GraphQL API for subscription and
   order data is in Early Access. The platform itself is enterprise and sold through
   sales, but the developer documentation and API reference are publicly readable.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve

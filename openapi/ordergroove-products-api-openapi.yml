@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Ordergroove REST Customers Products API
-  description: 'The Ordergroove REST API operates an enterprise subscription and relationship-commerce program on top of a merchant''s eCommerce store. It is organized around a four-object data model - Customer, Subscription, Item, and Order - plus supporting resources for Products, Offers and Incentives, Payments, Addresses, and Entitlements. Two authentication scopes exist: an Application API scope for server-to-server calls using an x-api-key header (one of ten keys per store), and a Storefront API scope using an HMAC-SHA256-signed request scoped to a single customer. All traffic is HTTPS only. This document models the publicly documented REST surface at restapi.ordergroove.com; endpoint paths are drawn from the public API reference. Ordergroove is an enterprise platform sold through sales, so an account and API keys are required to call the API, but the reference is publicly readable.'
+  title: Ordergroove REST Products API
+  description: The Ordergroove REST API operates an enterprise subscription and relationship-commerce program on top of a merchant's eCommerce store.
   version: '1.0'
   contact:
     name: Ordergroove Developer
@@ -75,19 +75,6 @@ paths:
                 $ref: '#/components/schemas/Product'
 components:
   schemas:
-    ProductList:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Product'
-        next:
-          type: string
-          nullable: true
-        previous:
-          type: string
-          nullable: true
     Product:
       type: object
       properties:
@@ -99,6 +86,21 @@ components:
           type: string
         autoship_enabled:
           type: boolean
+    ProductList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        next:
+          type:
+          - string
+          - 'null'
+        previous:
+          type:
+          - string
+          - 'null'
   securitySchemes:
     apiKeyAuth:
       type: apiKey

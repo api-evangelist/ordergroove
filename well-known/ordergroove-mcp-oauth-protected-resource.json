@@ -1,0 +1,1 @@
+{"resource":"https://mcp.ordergroove.com/mcp","authorization_servers":["https://auth.ordergroove.com/o"],"scopes_supported":["openid","og:merchant","og:exchange"],"bearer_methods_supported":["header"]}

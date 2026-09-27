@@ -159,10 +159,10 @@ paths:
                 $ref: '#/components/schemas/Subscription'
 components:
   responses:
-    TooManyRequests:
-      description: Rate limit exceeded (more than 6000 requests per IP per minute). Safe to retry.
     Unauthorized:
       description: Authentication failed or the API key is missing or invalid.
+    TooManyRequests:
+      description: Rate limit exceeded (more than 6000 requests per IP per minute). Safe to retry.
   schemas:
     SubscriptionList:
       type: object

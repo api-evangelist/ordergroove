@@ -88,6 +88,21 @@ paths:
                 $ref: '#/components/schemas/Order'
 components:
   schemas:
+    OrderList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+        next:
+          type:
+          - string
+          - 'null'
+        previous:
+          type:
+          - string
+          - 'null'
     Order:
       type: object
       properties:
@@ -115,21 +130,6 @@ components:
           type: string
         shipping_address_id:
           type: string
-    OrderList:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Order'
-        next:
-          type:
-          - string
-          - 'null'
-        previous:
-          type:
-          - string
-          - 'null'
   parameters:
     PublicId:
       name: public_id

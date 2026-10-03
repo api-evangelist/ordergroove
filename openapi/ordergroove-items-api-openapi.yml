@@ -84,21 +84,6 @@ paths:
           description: The item was deleted.
 components:
   schemas:
-    ItemList:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Item'
-        next:
-          type:
-          - string
-          - 'null'
-        previous:
-          type:
-          - string
-          - 'null'
     Item:
       type: object
       properties:
@@ -124,6 +109,21 @@ components:
           type: string
         one_time:
           type: boolean
+    ItemList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
+        next:
+          type:
+          - string
+          - 'null'
+        previous:
+          type:
+          - string
+          - 'null'
   parameters:
     PublicId:
       name: public_id

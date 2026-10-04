@@ -83,6 +83,14 @@ paths:
         '204':
           description: The item was deleted.
 components:
+  parameters:
+    PublicId:
+      name: public_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: The public identifier of the resource.
   schemas:
     Item:
       type: object
@@ -124,14 +132,6 @@ components:
           type:
           - string
           - 'null'
-  parameters:
-    PublicId:
-      name: public_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: The public identifier of the resource.
   securitySchemes:
     apiKeyAuth:
       type: apiKey

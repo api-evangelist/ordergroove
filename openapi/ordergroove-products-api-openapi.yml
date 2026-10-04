@@ -75,6 +75,17 @@ paths:
                 $ref: '#/components/schemas/Product'
 components:
   schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+        price:
+          type: string
+        external_product_id:
+          type: string
+        autoship_enabled:
+          type: boolean
     ProductList:
       type: object
       properties:
@@ -90,17 +101,6 @@ components:
           type:
           - string
           - 'null'
-    Product:
-      type: object
-      properties:
-        id:
-          type: string
-        price:
-          type: string
-        external_product_id:
-          type: string
-        autoship_enabled:
-          type: boolean
   securitySchemes:
     apiKeyAuth:
       type: apiKey

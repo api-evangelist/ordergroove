@@ -158,7 +158,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/Subscription'
 components:
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded (more than 6000 requests per IP per minute). Safe to retry.
+    Unauthorized:
+      description: Authentication failed or the API key is missing or invalid.
   schemas:
+    SubscriptionList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscription'
+        next:
+          type:
+          - string
+          - 'null'
+        previous:
+          type:
+          - string
+          - 'null'
     Subscription:
       type: object
       properties:
@@ -189,26 +209,6 @@ components:
           - year
         live:
           type: boolean
-    SubscriptionList:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Subscription'
-        next:
-          type:
-          - string
-          - 'null'
-        previous:
-          type:
-          - string
-          - 'null'
-  responses:
-    TooManyRequests:
-      description: Rate limit exceeded (more than 6000 requests per IP per minute). Safe to retry.
-    Unauthorized:
-      description: Authentication failed or the API key is missing or invalid.
   parameters:
     PublicId:
       name: public_id

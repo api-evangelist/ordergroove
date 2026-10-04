@@ -97,6 +97,15 @@ paths:
                       $ref: '#/components/schemas/Entitlement'
 components:
   schemas:
+    OfferProfile:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
     Entitlement:
       type: object
       properties:
@@ -116,15 +125,6 @@ components:
         amount:
           type: string
         type:
-          type: string
-    OfferProfile:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
           type: string
   securitySchemes:
     apiKeyAuth:

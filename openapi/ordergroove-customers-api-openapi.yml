@@ -119,9 +119,6 @@ components:
           type: string
         email:
           type: string
-  responses:
-    Unauthorized:
-      description: Authentication failed or the API key is missing or invalid.
   parameters:
     PublicId:
       name: public_id
@@ -130,6 +127,9 @@ components:
       schema:
         type: string
       description: The public identifier of the resource.
+  responses:
+    Unauthorized:
+      description: Authentication failed or the API key is missing or invalid.
   securitySchemes:
     apiKeyAuth:
       type: apiKey

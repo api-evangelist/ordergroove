@@ -97,6 +97,17 @@ paths:
                       $ref: '#/components/schemas/Entitlement'
 components:
   schemas:
+    OneTimeDiscount:
+      type: object
+      properties:
+        id:
+          type: string
+        customer_id:
+          type: string
+        amount:
+          type: string
+        type:
+          type: string
     OfferProfile:
       type: object
       properties:
@@ -114,17 +125,6 @@ components:
         customer_id:
           type: string
         status:
-          type: string
-    OneTimeDiscount:
-      type: object
-      properties:
-        id:
-          type: string
-        customer_id:
-          type: string
-        amount:
-          type: string
-        type:
           type: string
   securitySchemes:
     apiKeyAuth:

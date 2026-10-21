@@ -29,3 +29,16 @@
     builder: Fivetran
   status: not-a-workflow
   arazzo: null
+- slug: ordergroove-salesforce-commerce-cloud-own
+  label: Salesforce Commerce Cloud (own)
+  partner: salesforce-commerce-cloud
+  partner_name: Salesforce Commerce Cloud (own)
+  category: eCommerce
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000G0yJ1UAJ
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
